@@ -1,8 +1,12 @@
+## set the company name here.  should match directory name also
 
-file <- "~/Dropbox/PeterLydiaBrent/Clients/Ergon/"
+company_name <- "CPI report"
 
-#library(tidyverse)
-library(qualtRics)
+##########################################################
+
+wd <- paste0("~/Dropbox/R/", eval(company_name))
+setwd(eval(wd))
+library(tidyverse)
 library(forcats)
 library(lubridate)
 
@@ -14,15 +18,15 @@ columnsSG <- c("ResponseId",	"StartDate",	"EndDate",	"Status",	"Contact ID",	"Le
 
 ###################################### upload raw data from SG and QUALTRICS ###############################################
 
-SG <- read_csv(paste0(file,"sgizmo download/SG-Ergon.csv"))
+SG <- read_csv(paste0(wd,"/sgizmo download/SG-Ergon.csv"))
 
 
 #################################### MAKE CHANGES TO TOP LINES  ###################################################
 
-SG <- add_column(SG, yy = 0, zz = 200, Company = "Ergon")
+SG <- add_column(SG, yy = 0, zz = 200, Company = eval(company_name))
 colnames(SG) <- columnsSG
 
-#I took out end and start dates
+### double check which values to fileter.  e.g. take out test data.  In this example, the numbers 18 and below are removed.
 data <- SG %>% filter(ResponseId > 18) %>%
   select(ResponseId, Company, DIVISION:nps, "Duration (in seconds)",	nps_NPS_GROUP)
 data[, c("ResponseId",	"nps", "Duration (in seconds)", "nps_NPS_GROUP") ]<- lapply(SG[,c("ResponseId",	"nps", "Duration (in seconds)", "nps_NPS_GROUP")], as.character)
@@ -228,21 +232,11 @@ data <- data %>% rowwise() %>%
 
 
 ##############################  $$$$$$$$$$$$$$$$$  ^^^^^^^^^^^^^^^^^^6  &&&&&&&&&&&&&&&&&&&
-setwd("~/Dropbox/Clients/Ergon/Ergon business units.Font.Red_line")
-for (bu in 1:length(DIVISIONLevs)){
-  # library(showtext)
-  # showtext_auto()
-   #bu <-1
-    
-  business_unit <- DIVISIONLevs[bu]
-  filebu <- paste0("~/Dropbox/Clients/Ergon/Ergon business units.Font.Red_line/", business_unit, "/")
-  filebu2 <- paste0("/Users/Brent/Dropbox/Clients/Ergon/Ergon business units.Font.Red_line/", business_unit, "/") # for means.R because of pander formatting
-  df <- data %>% filter(DIVISION == eval(business_unit)) 
-  #### go into the below scripts and 1. fix them (take out DIVISION and fix file paths) 2. add the correct directories in finder
-   source("~/Dropbox/Clients/Ergon/Ergon business units/themes.R")
-   source("~/Dropbox/Clients/Ergon/Ergon business units/plot script index.R")
-    source("~/Dropbox/PeterLydiaBrent/Clients/Ergon/Ergon business units/app.old.R")
-    source("~/Dropbox/Clients/Ergon/Ergon business units.Font.Red_line/means.R")
-  source("~/Dropbox/Clients/Ergon/Ergon business units.Font.Red_line/combine pdfs.R")
- 
-}
+
+source(paste0(wd,"SCRIPTS/themes.R"))
+source(paste0(wd,"SCRIPTS/plot script index.R"))
+source(paste0(wd,"SCRIPTS/app.old.R"))
+source(paste0(wd,"SCRIPTS/means.R"))
+source(paste0(wd,"SCRIPTS/combine pdfs.R"))
+
+   
