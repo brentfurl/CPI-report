@@ -1,0 +1,42 @@
+demo,level,n,percentage
+TENURE,Less than a year,42,11.6
+TENURE,1 - 4 years,114,31.5
+TENURE,5 - 8 years,86,23.8
+TENURE,9+ years,120,33.1
+FUNCTION,CI & Maintenance,7,1.9
+FUNCTION,EHS,8,2.2
+FUNCTION,Finance/IT,22,6.1
+FUNCTION,Human Resources,15,4.2
+FUNCTION,IsoTek Manufacturing,15,4.2
+FUNCTION,Operations,109,30.3
+FUNCTION,Order Process & Quality,54,15
+FUNCTION,Sales,106,29.4
+FUNCTION,Supply Chain,24,6.7
+LEVEL,Leadership (Director and up),11,3
+LEVEL,Management,42,11.6
+LEVEL,Supervisor,38,10.5
+LEVEL,Team Member,270,74.8
+LOCATION,"Baton Rouge, LA",15,4.2
+LOCATION,"Beaumont, TX",16,4.5
+LOCATION,Belgium,8,2.2
+LOCATION,"Boothwyn, PA",7,1.9
+LOCATION,"Dominquez, CA",13,3.6
+LOCATION,"Ferndale, WA",10,2.8
+LOCATION,"Freeport, TX",9,2.5
+LOCATION,"Golden, CO",15,4.2
+LOCATION,"Houston, TX",174,48.5
+LOCATION,"Joliet, IL",11,3.1
+LOCATION,"Lake Charles, LA",7,1.9
+LOCATION,"Matrix (Houston, TX)",8,2.2
+LOCATION,"Minneapolis, MN",6,1.7
+LOCATION,"New Orleans, LA",5,1.4
+LOCATION,"Salt Lake City, UT",5,1.4
+LOCATION,"SARNA, Canada",21,5.8
+LOCATION,Singapore,9,2.5
+LOCATION,Spain,1,0.3
+LOCATION,Thailand,19,5.3
+GENERATION,Silent Generation (born between 1925 - 1945),3,0.8
+GENERATION,Baby Boomer (born between 1946 - 1965),92,25.5
+GENERATION,Generation X (born between 1966 - 1980),122,33.8
+GENERATION,Generation Y (born between 1981 - 2000),142,39.3
+GENERATION,Generation Z (born between 2001 - 2020),2,0.6
